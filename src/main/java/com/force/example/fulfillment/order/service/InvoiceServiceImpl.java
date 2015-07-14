@@ -2,6 +2,10 @@ package com.force.example.fulfillment.order.service;
 
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+import canvas.CanvasRequest;
+>>>>>>> fd7926607775eee4ae38593821088a0316340ab5
 import org.springframework.stereotype.Service;
 
 import com.force.api.ApiSession;
@@ -15,6 +19,7 @@ import com.force.example.fulfillment.order.model.Invoice;
 @Service
 public class InvoiceServiceImpl implements InvoiceService {
 
+<<<<<<< HEAD
     private ForceApi getForceApi() {
         SecurityContext sc = ForceSecurityContextHolder.get();
 
@@ -22,6 +27,21 @@ public class InvoiceServiceImpl implements InvoiceService {
         s.setAccessToken(sc.getSessionId());
         s.setApiEndpoint(sc.getEndPointHost());
 
+=======
+    private CanvasRequest cr;
+
+    private ForceApi getForceApi() {
+        ApiSession s = new ApiSession();
+
+        if(cr != null) {
+            s.setAccessToken(cr.getClient().getOAuthToken());
+            s.setApiEndpoint(cr.getClient().getInstanceUrl());
+        } else {
+            SecurityContext sc = ForceSecurityContextHolder.get();
+            s.setAccessToken(sc.getSessionId());
+            s.setApiEndpoint(sc.getEndPointHost());
+        }
+>>>>>>> fd7926607775eee4ae38593821088a0316340ab5
         return new ForceApi(s);
     }
     
@@ -46,4 +66,11 @@ public class InvoiceServiceImpl implements InvoiceService {
         getForceApi().deleteSObject("Invoice__c", id);
     }
 
+<<<<<<< HEAD
+=======
+    public void setSignedRequest(CanvasRequest canRequest) {
+        this.cr = canRequest;
+    }
+
+>>>>>>> fd7926607775eee4ae38593821088a0316340ab5
 }

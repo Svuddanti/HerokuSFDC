@@ -178,6 +178,14 @@
             <artifactId>force-springsecurity</artifactId>
             <version>22.0.8-BETA</version>
         </dependency>
+<<<<<<< HEAD
+=======
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.4</version>
+        </dependency>
+>>>>>>> fd7926607775eee4ae38593821088a0316340ab5
 	</dependencies>
 	<repositories>
 		<!-- For Hibernate Validator -->
